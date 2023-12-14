@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ColorTiltSequence</string>
+    <string name="view_high_scores">View High Scores</string>
+    <string name="your_score">Your Score: %1$d</string>
+    <string name="start_game">Start Game</string>
+
+</resources>
