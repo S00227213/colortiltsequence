@@ -30,10 +30,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + KEY_PLAYER_NAME + " TEXT,"
             + KEY_SCORE + " INTEGER" + ")";
 
-    /**
-     * Constructor for DatabaseHelper.
-     * @param context The context for the database helper.
-     */
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -46,9 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_HIGH_SCORES);
     }
 
-    /**
-     * Handles upgrading the database when the schema changes.
-     */
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if it existed
@@ -89,10 +83,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             int playerNameIndex = cursor.getColumnIndex(KEY_PLAYER_NAME);
             int scoreIndex = cursor.getColumnIndex(KEY_SCORE);
 
-            // Check if any of the indices are -1, which indicates the column was not found
+
             if (idIndex == -1 || playerNameIndex == -1 || scoreIndex == -1) {
-                // Handle the error or log the issue
-                // You might want to throw an exception or return an empty list
                 cursor.close();
                 db.close();
                 return highScores;
@@ -137,7 +129,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close(); // Close the database connection
     }
 
-    // Nested class for high score objects
     public static class HighScore {
         private int id;
         private String playerName;
